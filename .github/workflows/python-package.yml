@@ -14,7 +14,7 @@ on:
 jobs:
  build:
   
-    runs-on: 'node20'
+    runs-on: Ubuntu latest
     strategy:
       fail-fast: false
       matrix:
