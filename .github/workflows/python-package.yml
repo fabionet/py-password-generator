@@ -3,6 +3,9 @@
 
 name: Python package
 
+env: 
+  using: 'node20'
+
 on:
   push:
     branches: [ "main" ]
