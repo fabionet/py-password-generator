@@ -3,7 +3,7 @@
 
 name: Python package
 
-env: 
+run: 
   using: 'node20'
 
 on:
