@@ -1,10 +1,10 @@
-# py-password-generator
+# Py-Password-Generator
 
 One Simple python password generator with interface PyQt5
 
-FIRST CONFIGURATION Space Vitual Envelop separated for developers.
+FIRST CONFIGURATION Space Virtual Envelop separated for developers.
 
-# install python3
+# Install Python3
 
 $ sudo apt install python3     
 
@@ -24,7 +24,7 @@ $ cd py-password-generator/
 
 ----- Create Envelop Space -----
 
-$ cd home/youtname/git-repo-clone/py-password-generator
+$ cd home/yourname/git-repo-clone/py-password-generator
 
 - Directory name of default but cat you create with different name in to
 
