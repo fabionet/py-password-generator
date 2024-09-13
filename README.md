@@ -4,9 +4,7 @@ One Simple python password generator with interface PyQt5
 
 FIRST CONFIGURATION Space Vitual Envelop separated for developers.
 
-$ sudo apt install python3     
-
-###### install python3
+$ sudo apt install python3     ###### install python3
 
 ----- Installing PIP command ------
 
@@ -26,13 +24,11 @@ $ cd py-password-generator/
 
 $ cd home/youtname/git-repo-clone/py-password-generator
 
-$ mkdir venv                                               
-##### Directory name of default but cat you create with different name in to
+$ mkdir venv                                               ##### Directory name of default but cat you create with different name in to
 
 $ cd venv
 
-$ python3 -m venv .                                       
-##### Installing virtual envelop space
+$ python3 -m venv .                                        ##### Installing virtual envelop space
 
 $ source bin/activate
 
