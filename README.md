@@ -51,3 +51,13 @@ Execute and develop for this project.
 $ python3 passgen.py
 
 Enjoy. ;-)
+
+---
+
+## Security
+
+**v1.1 — Security Fix: Cryptographically Secure Random Number Generator**
+
+Previously, password generation used Python's `random` module (Mersenne Twister PRNG), which is **not suitable for cryptographic purposes**. An attacker observing enough generated output could reconstruct the internal state and predict past/future passwords.
+
+The module has been updated to use Python's built-in `secrets` module, which is backed by the OS CSPRNG (`os.urandom()`), making generated passwords cryptographically secure — as recommended by the [official Python documentation](https://docs.python.org/3/library/secrets.html).

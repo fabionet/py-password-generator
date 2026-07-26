@@ -1,5 +1,5 @@
 import sys
-import random
+import secrets
 import string
 from PyQt5.QtWidgets import QApplication, QMainWindow, QWidget, QVBoxLayout, QHBoxLayout, QLabel, QLineEdit, QPushButton, QSpinBox, QCheckBox
 
@@ -69,7 +69,7 @@ class PasswordGenerator(QMainWindow):
             return
 
         all_chars = ''.join(char_sets)
-        password = ''.join(random.choice(all_chars) for _ in range(length))
+        password = ''.join(secrets.choice(all_chars) for _ in range(length))
         self.password_field.setText(password)
 
 if __name__ == "__main__":
