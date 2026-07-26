@@ -1,7 +1,11 @@
 import sys
-import random
-import string
-from PyQt5.QtWidgets import QApplication, QMainWindow, QWidget, QVBoxLayout, QHBoxLayout, QLabel, QLineEdit, QPushButton, QSpinBox, QCheckBox
+from PyQt5.QtWidgets import (
+    QApplication, QMainWindow, QWidget,
+    QVBoxLayout, QHBoxLayout, QLabel,
+    QLineEdit, QPushButton, QSpinBox, QCheckBox,
+)
+from passgen_core import generate_password
+
 
 class PasswordGenerator(QMainWindow):
     def __init__(self):
@@ -52,25 +56,18 @@ class PasswordGenerator(QMainWindow):
         layout.addWidget(generate_button)
 
     def generate_password(self):
-        length = self.length_spinbox.value()
-        char_sets = []
-
-        if self.uppercase_cb.isChecked():
-            char_sets.append(string.ascii_uppercase)
-        if self.lowercase_cb.isChecked():
-            char_sets.append(string.ascii_lowercase)
-        if self.digits_cb.isChecked():
-            char_sets.append(string.digits)
-        if self.symbols_cb.isChecked():
-            char_sets.append(string.punctuation)
-
-        if not char_sets:
+        password = generate_password(
+            self.length_spinbox.value(),
+            use_uppercase=self.uppercase_cb.isChecked(),
+            use_lowercase=self.lowercase_cb.isChecked(),
+            use_digits=self.digits_cb.isChecked(),
+            use_symbols=self.symbols_cb.isChecked(),
+        )
+        if password is None:
             self.password_field.setText("Seleziona almeno un tipo di carattere")
-            return
+        else:
+            self.password_field.setText(password)
 
-        all_chars = ''.join(char_sets)
-        password = ''.join(random.choice(all_chars) for _ in range(length))
-        self.password_field.setText(password)
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
