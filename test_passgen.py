@@ -1,4 +1,5 @@
 import string
+import pytest
 from passgen_core import generate_password
 
 
@@ -42,13 +43,26 @@ def test_no_charset_returns_none():
     assert result is None
 
 
-def test_all_charsets():
-    password = generate_password(100)
-    all_chars = (string.ascii_uppercase + string.ascii_lowercase
-                 + string.digits + string.punctuation)
-    assert all(c in all_chars for c in password)
+def test_all_charsets_represented():
+    password = generate_password(20)
+    assert any(c in string.ascii_uppercase for c in password)
+    assert any(c in string.ascii_lowercase for c in password)
+    assert any(c in string.digits for c in password)
+    assert any(c in string.punctuation for c in password)
 
 
 def test_returns_string():
     password = generate_password(10)
     assert isinstance(password, str)
+
+
+def test_invalid_length_raises():
+    with pytest.raises(ValueError):
+        generate_password(0)
+    with pytest.raises(ValueError):
+        generate_password(-5)
+
+
+def test_length_less_than_charsets_raises():
+    with pytest.raises(ValueError):
+        generate_password(3)
